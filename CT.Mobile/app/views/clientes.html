@@ -1,0 +1,20 @@
+﻿<div ui-content-for="title">
+    <span>Clientes</span>
+</div>
+<div class="scrollable">
+    <div class="scrollable-header alert alert-info">
+        Drag right to dismiss notices!
+    </div>
+    <div class="scrollable-content">
+        <div class="container-fluid">
+            <div class="notices-container" ng-controller="clienteCtrl as vm">
+                <div ng-repeat="c in vm.clientes"
+                     drag-to-dismiss="deleteNotice(c)"
+                     class="section section-break">
+                    <i class="fa fa-user"></i> {{c.NOME}}
+                </div>
+            </div>
+        </div>
+        <br/>
+    </div>
+</div>

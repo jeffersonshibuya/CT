@@ -1,0 +1,43 @@
+﻿<section id="page-title">
+    <div class="row">
+        <div class="col-sm-8">
+            <h1 class="mainTitle">Clientes</h1>
+            <span class="mainDescription">Gerenciamento dos Clientes</span>
+        </div>
+        <div ncy-breadcrumb></div>
+    </div>
+</section>
+<div ng-show="loading"><img src="/assets/images/loading.gif" />Carregando Clientes...</div>
+<!-- start: INLINE EDIT EXAMPLE -->
+<div class="container-fluid container-fullw" ng-show="!loading">    
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                <div class="row margin-bottom-10">
+                    <div class="col-md-12">
+                        <span class="pull-left "><input type="button" value="Cadastrar" ng-click="cadastrar()"/></span>
+
+                        <div class="button-group pull-right margin-right-10">
+                            <h5 class="pull-left ">Total: <span class="badge badge-info">{{total}}</span></h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table id="tableClientes" ng-table="tableParams" class="table table-striped export-table">
+                        <tr ng-repeat="p in $data">                         
+                            <td class="rowTd" title="vm.cols[0].title" ng-show="vm.cols[0].show" sortable="'ID'"> {{p.ID}}</td>
+                            <td class="rowTd" title="vm.cols[1].title" ng-show="vm.cols[1].show" sortable="'NOME'">{{p.NOME}}</td>
+                            
+                            <td class="text-right">
+                                <a ui-sref="app.clientes.editar({id: p.ID})" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Editar"><i class="fa fa-pencil"></i></a>                                                               
+                                <a ng-click="delete(p.ID)" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Editar"><i class="fa fa-times"></i></a>                                                               
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end: INLINE EDIT EXAMPLE -->

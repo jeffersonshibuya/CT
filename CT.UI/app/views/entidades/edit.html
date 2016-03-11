@@ -1,0 +1,101 @@
+﻿<!-- start: PAGE TITLE -->
+<section id="page-title">
+    <div class="row">
+        <div class="col-sm-8">
+            <h1 class="mainTitle">Editar Entidade</h1>
+            <span class="mainDescription">Formulário de edição da entidade.</span>
+        </div>
+        <div ncy-breadcrumb></div>
+    </div>
+</section>
+<!-- end: PAGE TITLE -->
+<!-- start: FORM VALIDATION -->
+<div class="container-fluid container-fullw bg-white">
+    <div class="row">
+        <div class="col-md-12">
+            <span class="symbol required"> Campos Obrigatórios</span>
+
+            <form name="Form" id="form" novalidate ng-submit="form.submit(Form)">
+
+                <div class="row">
+                    <fieldset>
+                        <legend>
+                            Dados do Cliente
+                        </legend>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group" ng-class="{'has-error':Form.nome.$dirty && Form.nome.$invalid, 'has-success':Form.nome.$valid}">
+                                    <label class="control-label">
+                                        Nome <span class="symbol required"></span>
+                                    </label>
+                                    <input type="text" placeholder="Nome Completo" class="form-control" name="nome" ng-model="entidade.ENT_NOME" required />
+                                    <span class="error text-small block" ng-if="Form.nome.$dirty && Form.nome.$invalid">Informe o Nome</span>
+                                </div>                                
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group" ng-class="{'has-error':Form.fantasia.$dirty && Form.fantasia.$invalid, 'has-success':Form.fantasia.$valid}">
+                                    <label class="control-label">
+                                        Fantasia <span class="symbol required"></span>
+                                    </label>
+                                    <input type="text" placeholder="Nome Fantasia" class="form-control" name="fantasia" ng-model="entidade.ENT_FANTASIA" required />
+                                    <span class="error text-small block" ng-if="Form.fantasia.$dirty && Form.fantasia.$invalid">Informe o Nome Fantasia</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group" ng-class="{'has-error':Form.tpFiscal.$dirty && Form.tpFiscal.$invalid, 'has-success':Form.tpFiscal.$valid}">
+                                    <div class="form-group">
+                                        <label for="form-field-select-1">
+                                            Tipo Fiscal <span class="symbol required"></span>
+                                        </label>
+                                        <select class="cs-select cs-skin-slide" name="tpFiscal" required ng-model="entidade.ENT_TP_FISCAL">
+                                            <option value="F">Física</option>
+                                            <option value="J">Jurídica</option>
+                                        </select>                                        
+                                    </div>
+                                    <span class="error text-small block" ng-if="Form.tpFiscal.$dirty && Form.tpFiscal.$invalid">Informe o Tp. Fiscal</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group" ng-class="{'has-error':Form.dtCad.$dirty && Form.dtCad.$invalid, 'has-success':Form.dtCad.$valid}">
+                                    <label class="control-label">
+                                        Data Cadastro <span class="symbol required"></span>
+                                    </label>
+                                    <input type="date" class="form-control" name="dtCad" ng-model="entidade.ENT_DT_CAD" required />
+                                    <span class="error text-small block" ng-if="Form.dtCad.$dirty && Form.dtCad.$invalid">Informe a Data de Cadastro</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group" ng-class="{'has-error':Form.status.$dirty && Form.status.$invalid, 'has-success':Form.status.$valid}">
+                                    <div class="form-group">
+                                        <label for="form-field-select-1">
+                                            Status <span class="symbol required"></span>
+                                        </label>
+                                        <select class="cs-select cs-skin-slide" name="status" required ng-model="entidade.ENT_STATUS">
+                                            <option value="A">A</option>
+                                            <option value="C">C</option>
+                                            <option value="I">I</option>
+                                            <option value="N">N</option>
+                                        </select>                                        
+                                    </div>             
+                                    <span class="error text-small block" ng-if="Form.status.$dirty && Form.status.$invalid">Informe o Status</span>                      
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="pull-right">
+                            <button type="submit" class="btn btn-primary"> Cadastrar </button>
+                            <button type="button" class="btn btn-warning btn-addon" data-ng-click="$back()">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{{entidade | json}}

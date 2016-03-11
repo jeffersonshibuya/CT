@@ -1,0 +1,37 @@
+﻿<form name="FormEdit" id="formEdit" novalidate ng-submit="formEdit.submit(FormEdit, p)">
+    <table class="table no-bg">
+        <tr>
+
+            <td>Código: </td>
+            <td> <input class="form-control" type="text" name="Codigo" ng-init="PRO_COD_ORIGINAL = p.PRO_COD" ng-model="p.PRO_COD"> </td>
+            <td>Data Limite: </td>
+            <td>
+                <div class="form-horizontal">
+                    <p class="input-group  margin-top-10">
+                        <input type="text" name="DataReserva" disabled class="form-control" datepicker-popup="dd/MM/yyyy" ng-model="p.EP_DATA_LIMITE"
+                               is-open="opened[$index]" datepicker-options="dateOptions" ng-init="EP_DATA_LIMITE_ORIGIAL = p.EP_DATA_LIMITE"
+                               ng-required="false" close-text="Fechar" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open($index)">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
+                        </span>
+
+                    </p>
+                </div>
+                <span class="error text-small block" ng-if="Form.DataReserva.$dirty && Form.DataReserva.$invalid">Informe a Data da Reserva</span>
+            </td>
+            <td>Valor: <span class="symbol required"></span></td>
+            <td> <input class="form-control" type="text" name="Nome" mask-money ng-init="EP_VALOR_ORIGNAL = p.EP_VALOR" ng-model="p.EP_VALOR"> </td>
+            <td colspan="2">
+                <div class="pull-right">
+                    <input type="submit" class="btn btn-primary btn-sm margin-right-15" value="Salvar">
+                    <!--<input ng-discard type="button" class="btn btn-primary btn-sm margin-right-15" value="Cancelar" ng-click="setEditId(-1)">-->
+                    <input type="button" class="btn btn-primary btn-sm margin-right-15" ng-click="p.PRO_COD = PRO_COD_ORIGINAL; p.EP_DATA_LIMITE = EP_DATA_LIMITE_ORIGIAL;
+                             p.EP_VALOR = EP_VALOR_ORIGNAL; setEditId(-1)" value="Cancelar">
+                </div>
+            </td>
+        </tr>
+    </table>
+</form>
+

@@ -1,0 +1,36 @@
+﻿<form name="Form" id="form" novalidate ng-submit="form.submit(Form, projeto)">
+    <table class="table no-bg">
+        <tr>
+
+            <td>Código: </td>
+            <td> <input class="form-control" type="text" name="Codigo" ng-model="projeto.PRO_COD"> </td>
+            <td>Data Limite: </td>
+            <!--<td ng-class="{'has-error':Form.DataReserva.$dirty && Form.DataReserva.$invalid, 'has-success':Form.DataReserva.$valid}">
+                <div class="form-horizontal">
+                    <p class="input-group  margin-top-10">
+                        <input type="text" name="DataReserva" disabled class="form-control" datepicker-popup="dd/MM/yyyy" ng-model="fila.DataReserva"
+                               is-open="opened[$index]" datepicker-options="dateOptions"
+                               ng-required="true" close-text="Fechar"/>
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open($index)">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
+                        </span>
+
+                    </p>
+                </div>
+                <span class="error text-small block" ng-if="Form.DataReserva.$dirty && Form.DataReserva.$invalid">Informe a Data da Reserva</span>
+            </td>-->
+            <td> <input class="form-control input-sm" name="DataLimite" type="date" ng-model="projeto.EP_DATA_LIMITE"></td>
+            <td>Valor: <span class="symbol required"></span></td>
+            <td> <input class="form-control" type="text" name="Nome" mask-money ng-model="projeto.EP_VALOR"> </td>
+            <td colspan="2">
+                <div class="pull-right">
+                    <input type="submit" class="btn btn-primary btn-sm margin-right-15" value="Cadastrar">
+                    <input type="button" class="btn btn-primary btn-sm margin-right-15" value="Cancelar" ng-click="cancelCreate(Form)">
+                </div>
+            </td>
+        </tr>
+    </table>
+</form>
+
